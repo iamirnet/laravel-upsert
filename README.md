@@ -1,8 +1,8 @@
-[![Code Coverage](https://scrutinizer-ci.com/g/staudenmeir/laravel-upsert/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/staudenmeir/laravel-upsert/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/staudenmeir/laravel-upsert/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/staudenmeir/laravel-upsert/?branch=master)
-[![Latest Stable Version](https://poser.pugx.org/staudenmeir/laravel-upsert/v/stable)](https://packagist.org/packages/staudenmeir/laravel-upsert)
-[![Total Downloads](https://poser.pugx.org/staudenmeir/laravel-upsert/downloads)](https://packagist.org/packages/staudenmeir/laravel-upsert)
-[![License](https://poser.pugx.org/staudenmeir/laravel-upsert/license)](https://packagist.org/packages/staudenmeir/laravel-upsert)
+[![Code Coverage](https://scrutinizer-ci.com/g/iamirnet/laravel-upsert/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/iamirnet/laravel-upsert/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/iamirnet/laravel-upsert/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/iamirnet/laravel-upsert/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/iamirnet/laravel-upsert/v/stable)](https://packagist.org/packages/iamirnet/laravel-upsert)
+[![Total Downloads](https://poser.pugx.org/iamirnet/laravel-upsert/downloads)](https://packagist.org/packages/iamirnet/laravel-upsert)
+[![License](https://poser.pugx.org/iamirnet/laravel-upsert/license)](https://packagist.org/packages/iamirnet/laravel-upsert)
 
 > [!IMPORTANT]
 > The package's code has been merged into Laravel 8.10+ and UPSERT queries are now supported natively. 
@@ -11,7 +11,7 @@
 
 This Laravel extension adds support for INSERT & UPDATE (UPSERT) and INSERT IGNORE to the query builder and Eloquent.
 
-Supports Laravel 5.5–8.9.
+Supports Laravel 5.5,8.x,9.x,10.x,11x.
 
 ## Compatibility
 
@@ -23,7 +23,7 @@ Supports Laravel 5.5–8.9.
  
 ## Installation
 
-    composer require staudenmeir/laravel-upsert:"^1.0"
+    composer require iamirnet/laravel-upsert
 
 ## Usage
 
@@ -121,7 +121,7 @@ In Laravel 5.5–5.7, this requires the `HasUpsertQueries` trait:
 ```php
 class User extends Model
 {
-    use \Staudenmeir\LaravelUpsert\Eloquent\HasUpsertQueries;
+    use \iamirnet\LaravelUpsert\Eloquent\HasUpsertQueries;
 }
 
 User::upsert(['username' => 'foo', 'active' => true], 'username', ['active']);
@@ -136,7 +136,7 @@ If the model uses timestamps, `upsert()` and `insertIgnore()` will automatically
 If you are using Lumen, you have to instantiate the query builder manually:
 
 ```php
-$builder = new \Staudenmeir\LaravelUpsert\Query\Builder(app('db')->connection());
+$builder = new \iamirnet\LaravelUpsert\Query\Builder(app('db')->connection());
 
 $builder->from(...)->upsert(...);
 ```
